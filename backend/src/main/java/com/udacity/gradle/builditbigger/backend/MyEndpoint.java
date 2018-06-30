@@ -21,7 +21,7 @@ import gradle.shaladi.de.jokelib.JokeTeller;
 public class MyEndpoint {
 
     /**
-     * A simple endpoint method that takes a name and says Hi back
+     * Endpoint for receiving a joke from a joke teller.
      */
     @ApiMethod(name = "tellJoke")
     public MyBean tellJoke() {

@@ -14,9 +14,6 @@ public class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
 
     private static MyApi myApiService = null;
 
-    //Used for testing this AsyncTask... easiest way... no time to figure stubbing :-(
-    public static boolean testMode = false;
-
     private OnCompleteListener mListener;
 
     public interface OnCompleteListener {
@@ -29,9 +26,6 @@ public class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
 
     @Override
     protected String doInBackground(Void... params) {
-
-        if (testMode)
-            return "This is a test joke.";
 
         if (myApiService == null) {  // Only do this once
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),

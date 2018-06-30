@@ -17,6 +17,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.not;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
@@ -28,13 +29,12 @@ public class MainActivityEndpointAsyncTaskTest {
     @Test
     public void mainActivityTest() {
 
-        EndpointsAsyncTask.testMode = true;
 
         ViewInteraction appCompatButton = onView(allOf(withText("Tell Joke"), isDisplayed()));
         appCompatButton.perform(click());
 
         ViewInteraction textView = onView(allOf(withId(R.id.joke_view), isDisplayed()));
-        textView.check(matches(withText("This is a test joke.")));
+        textView.check(matches(not(withText(""))));
 
     }
 
